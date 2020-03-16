@@ -178,6 +178,21 @@ $ python3 demo.py -robot jetbot
 * 2020/03/16 Alpha-0.0.1 release
     * Fix import error at jetbot_data_collection.ipynb.
 
+* 2020/03/16 Forked to modify for "standard" donkeycar w enhancements for automatic RL Training
+        enhancements: "training" lane boundry sensors - left and right downward pointing IR sensors to detect
+        white tape lane boundries and signal emd of episode. Donkeycar will process episode in SAC back up
+        slightly, turn steering to point to center of track and resume training.
+        Also includes odometer ( IR sensor pointed at wheel with white strips painted on edge. A seperate 
+        Arduino collects counts as the wheel turns and reports to the Jetson Nano on request over I2C.) The
+        the odometer counts (ticks) are converted to a speed analogue - ticks/interval - and included in 
+        observation presented to SAC. Eventually used to control throttle setting.
+        Lastly, a forward-facing sonar sensor (HC-SR04) is also process by the Arduino and passed on to the
+        Jetson Nano as collision sensor and end-of-episode event.
+        TODO - replace all Jetracer code with standard donkeycar vehicle controls
+             - replace IPC with joystick (PS4)
+             - integrate end-of-episode events - lane boundry detection and front collision
+             
+
 ### Running trained model
 
 After training, run the demo.py
