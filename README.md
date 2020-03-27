@@ -178,7 +178,7 @@ $ python3 demo.py -robot jetbot
 * 2020/03/16 Alpha-0.0.1 release
     * Fix import error at jetbot_data_collection.ipynb.
 
-* 2020/03/16 Forked to modify for "standard" donkeycar w enhancements for automatic RL Training
+* 2020/03/16 Forked to modify for use with "standard" donkeycar w enhancements for automatic RL Training
         enhancements: "training" lane boundry sensors - left and right downward pointing IR sensors to detect
         white tape lane boundries and signal emd of episode. Donkeycar will process episode in SAC back up
         slightly, turn steering to point to center of track and resume training.
